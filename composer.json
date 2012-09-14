@@ -1,0 +1,25 @@
+{
+    "name": "kuikui/memcache-service-provider",
+    "type": "library",
+    "description": "Memcache integration for Silex.",
+    "keywords": ["silex", "memcache"],
+    "homepage": "https://github.com/KuiKui/MemcacheServiceProvider",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Denis Roussel",
+            "email": "denis.roussel@gmail.com",
+            "homepage": "http://denisroussel.fr"
+        }
+    ],
+    "require-dev": {
+        "silex/silex": "1.0.*",
+        "mageekguy/atoum": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { 
+            "KuiKui\\MemcacheServiceProvider": "src" 
+        }
+    },
+    "minimum-stability": "dev"
+}
