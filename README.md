@@ -99,7 +99,7 @@ $app['memcache.default_duration'] = 60; // default: 0 (no limit)
 ```shell
 $ curl -s https://getcomposer.org/installer | php
 $ php composer.phar install --dev
-$ ./vendor/mageekguy/atoum/bin/atoum --test-all
+$ ./vendor/bin/atoum --test-all
 ```
 
 ## Dependency
