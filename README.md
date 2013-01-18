@@ -1,4 +1,4 @@
-# MemcacheServiceProvider [![Build Status](https://coconut-ci.com/api.php/jobs/27/statuses/last)](https://coconut-ci.com/kuikui/jobs/27)
+# MemcacheServiceProvider [![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.png)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
 
 MemcacheServiceProvider provides access to :
 * a simple Memcache wrapper with very simple API for standard use,
