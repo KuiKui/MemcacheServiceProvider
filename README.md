@@ -12,7 +12,7 @@ Create a composer.json in your projects root-directory :
 ```json
 {
     "require": {
-        "kuikui/memcache-service-provider": "*"
+        "kuikui/memcache-service-provider": "dev-master"
     }
 }
 ```
