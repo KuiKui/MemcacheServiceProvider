@@ -54,4 +54,9 @@ class SimpleWrapper extends AbstractWrapper
     {
         return $this->memcache->delete($key, 0);
     }
+
+    public function flush()
+    {
+        return $this->memcache->flush();
+    }
 }
