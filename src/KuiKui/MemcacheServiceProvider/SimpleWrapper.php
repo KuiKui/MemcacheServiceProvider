@@ -36,13 +36,13 @@ class SimpleWrapper extends AbstractWrapper
         }
     }
 
-    public function get($key, \Closure $fallback = null)
+    public function get($key, \Closure $fallback = null, $expiration = null, $compress = null)
     {
         $result = $this->memcache->get($key);
 
         if ($result === false && $fallback instanceof \Closure) {
             $result = $fallback();
-            if ($this->memcache->set($key, $result) === false) {
+            if ($this->set($key, $result, $expiration, $compress) === false) {
                 return false;
             }
         }
