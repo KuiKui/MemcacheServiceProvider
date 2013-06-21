@@ -22,15 +22,16 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
-        $app['memcache'] = $app->share(function() use ($app) {
-            $memcacheClass = $this->getMemcacheClass($app);
+	$mainClass = __CLASS__;
+        $app['memcache'] = $app->share(function() use ($app, $mainClass) {
+            $memcacheClass = $mainClass::getMemcacheClass($app);
             $memcacheInstance = new $memcacheClass();
 
-            foreach ($this->getConnections($app) as $connection) {
+            foreach ($mainClass::getConnections($app) as $connection) {
                 call_user_func_array(array($memcacheInstance, 'addServer'), array_values($connection));
             }
 
-            $wrapperClass = $this->getWrapperClass($app);
+            $wrapperClass = $mainClass::getWrapperClass($app);
             if ($wrapperClass === false) {
                 return $memcacheInstance;
             }
@@ -45,7 +46,7 @@ class ServiceProvider implements ServiceProviderInterface
         $app['memcache.default_compress'] = $this->getDefaultCompress($app);
     }
 
-    public function getMemcacheClass(Application $app)
+    public static function getMemcacheClass(Application $app)
     {
         if (!isset($app['memcache.class'])) {
             return '\Memcache';
@@ -60,7 +61,7 @@ class ServiceProvider implements ServiceProviderInterface
         return $memcacheClass;
     }
 
-    public function getWrapperClass(Application $app)
+    public static function getWrapperClass(Application $app)
     {
         if (!isset($app['memcache.wrapper'])) {
             return __NAMESPACE__.'\SimpleWrapper';
@@ -69,7 +70,7 @@ class ServiceProvider implements ServiceProviderInterface
         return $app['memcache.wrapper'];
     }
 
-    public function getConnections(Application $app)
+    public static function getConnections(Application $app)
     {
         if (!isset($app['memcache.connections'])) {
             return array(array('127.0.0.1', 11211));
