@@ -14,11 +14,11 @@
     ],
     "require-dev": {
         "silex/silex": "1.0.*",
-        "mageekguy/atoum": "dev-master"
+        "atoum/atoum": "dev-master"
     },
     "autoload": {
-        "psr-0": { 
-            "KuiKui\\MemcacheServiceProvider": "src" 
+        "psr-0": {
+            "KuiKui\\MemcacheServiceProvider": "src"
         }
     },
     "minimum-stability": "dev"
