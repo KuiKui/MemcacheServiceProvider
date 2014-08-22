@@ -21,7 +21,14 @@ use Silex\ServiceProviderInterface;
 class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
-    {
+    {        
+        // register parameters with service container
+        $app['memcache.class']              = $this->getMemcacheClass($app);
+        $app['memcache.wrapper']            = $this->getWrapperClass($app);
+        $app['memcache.connections']        = $this->getConnections($app);
+        $app['memcache.default_duration']   = $this->getDefaultExpirationTime($app);
+        $app['memcache.default_compress']   = $this->getDefaultCompress($app);
+        
         $app['memcache'] = $app->share(function() use ($app) {
             $memcacheClass = $this->getMemcacheClass($app);
             $memcacheInstance = new $memcacheClass();
@@ -36,13 +43,11 @@ class ServiceProvider implements ServiceProviderInterface
             }
 
             return new $wrapperClass($memcacheInstance, $app);
-        });
+        });        
     }
 
     public function boot(Application $app)
     {
-        $app['memcache.default_duration'] = $this->getDefaultExpirationTime($app);
-        $app['memcache.default_compress'] = $this->getDefaultCompress($app);
     }
 
     public function getMemcacheClass(Application $app)
