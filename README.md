@@ -12,7 +12,7 @@ Create a composer.json in your projects root-directory :
 ```json
 {
     "require": {
-        "kuikui/memcache-service-provider": "dev-master"
+        "kuikui/memcache-service-provider": "1.0.0"
     }
 }
 ```
@@ -21,7 +21,7 @@ and run :
 
 ```shell
 $ curl -s http://getcomposer.org/installer | php
-$ php composer.phar install
+$ php composer.phar install --no-dev
 ```
 
 ## Registering
@@ -98,8 +98,8 @@ $app['memcache.default_duration'] = 60; // default: 0 (no limit)
 
 ```shell
 $ curl -s https://getcomposer.org/installer | php
-$ php composer.phar install --dev
-$ ./vendor/bin/atoum --test-all
+$ php composer.phar install
+$ ./vendor/bin/atoum
 ```
 
 ## Dependency

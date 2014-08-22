@@ -1,3 +1,3 @@
 <?php
 
-$script->addTestAllDirectory(__DIR__ . '/tests/units');
+$script->addTestsFromDirectory(__DIR__ . '/tests/units');
