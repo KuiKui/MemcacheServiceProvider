@@ -22,15 +22,16 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
-        $app['memcache'] = $app->share(function() use ($app) {
-            $memcacheClass = $this->getMemcacheClass($app);
+        $that = $this;
+        $app['memcache'] = $app->share(function() use ($app, $that) {
+            $memcacheClass = $that->getMemcacheClass($app);
             $memcacheInstance = new $memcacheClass();
 
-            foreach ($this->getConnections($app) as $connection) {
+            foreach ($that->getConnections($app) as $connection) {
                 call_user_func_array(array($memcacheInstance, 'addServer'), array_values($connection));
             }
 
-            $wrapperClass = $this->getWrapperClass($app);
+            $wrapperClass = $that->getWrapperClass($app);
             if ($wrapperClass === false) {
                 return $memcacheInstance;
             }
