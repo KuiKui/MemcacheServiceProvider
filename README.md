@@ -97,8 +97,14 @@ $app['memcache.default_duration'] = 60; // default: 0 (no limit)
 ## Running the tests
 
 ```shell
-$ curl -s https://getcomposer.org/installer | php
-$ php composer.phar install
+$ cp Vagrantfile.dist Vagrantfile
+$ vagrant up
+$ vagrant ssh
+```
+
+```shell
+$ cd /vagrant
+$ composer install
 $ ./vendor/bin/atoum
 ```
 
