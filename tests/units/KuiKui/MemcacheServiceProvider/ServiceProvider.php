@@ -181,4 +181,16 @@ class ServiceProvider extends atoum\test
             ->isTrue()
         ;
     }
+
+    public function testRegisterWrapperSelection()
+    {
+        $app = new Application();
+        $provider = new MemcacheServiceProvider\ServiceProvider();
+
+        $provider->register($app);
+
+        $this->object($app['memcache'])
+            ->isInstanceOf('\KuiKui\MemcacheServiceProvider\AbstractWrapper')
+        ;
+    }
 }
