@@ -1,4 +1,7 @@
-# MemcacheServiceProvider [![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.png)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
+# Memcache service provider for Silex
+
+[![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.svg)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
+[![Total Downloads](https://poser.pugx.org/kuikui/memcache-service-provider/downloads.svg)](https://packagist.org/packages/kuikui/memcache-service-provider)
 
 MemcacheServiceProvider provides access to :
 * a simple Memcache wrapper with very simple API for standard use,
@@ -12,7 +15,7 @@ Create a composer.json in your projects root-directory :
 ```json
 {
     "require": {
-        "kuikui/memcache-service-provider": "1.0.0"
+        "kuikui/memcache-service-provider": "1.1.0"
     }
 }
 ```
@@ -20,8 +23,8 @@ Create a composer.json in your projects root-directory :
 and run :
 
 ```shell
-$ curl -s http://getcomposer.org/installer | php
-$ php composer.phar install --no-dev
+$ curl -sS http://getcomposer.org/installer | php
+$ php composer.phar install
 ```
 
 ## Registering
@@ -96,6 +99,8 @@ $app['memcache.default_duration'] = 60; // default: 0 (no limit)
 
 ## Running the tests
 
+The development environment is provided by Vagrant and the [Xotelia box](https://github.com/Xotelia/VagrantBox).
+
 ```shell
 $ cp Vagrantfile.dist Vagrantfile
 $ vagrant up
@@ -110,6 +115,8 @@ $ ./vendor/bin/atoum
 
 ## Dependency
 
+PHP 5.3+
+
 MemcacheServiceProvider needs one of these PHP modules to be installed :
 * [memcache](http://www.php.net/manual/en/book.memcache.php)
 * [memcached](http://www.php.net/manual/en/book.memcached.php)
@@ -122,3 +129,4 @@ Tested with [atoum](http://atoum.org).
 ## License
 
 The MemcacheServiceProvider is licensed under the [MIT license](https://github.com/KuiKui/MemcacheServiceProvider/blob/master/LICENSE).
+
