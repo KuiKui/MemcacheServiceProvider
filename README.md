@@ -3,7 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.svg)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
 [![Total Downloads](https://poser.pugx.org/kuikui/memcache-service-provider/downloads.svg)](https://packagist.org/packages/kuikui/memcache-service-provider)
 
-MemcacheServiceProvider provides access to :
+It provides access to :
 * a simple Memcache wrapper with very simple API for standard use,
 * or your own Memcache wrapper with `$app` injection for custom use,
 * or a genuine Memcache(d) object for advanced use.
@@ -114,8 +114,6 @@ $ ./vendor/bin/atoum
 ```
 
 ## Dependency
-
-PHP 5.3+
 
 MemcacheServiceProvider needs one of these PHP modules to be installed :
 * [memcache](http://www.php.net/manual/en/book.memcache.php)
