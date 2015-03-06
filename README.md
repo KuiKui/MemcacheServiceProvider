@@ -1,6 +1,9 @@
-# MemcacheServiceProvider [![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.png)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
+# Memcache service provider for Silex
 
-MemcacheServiceProvider provides access to :
+[![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.svg)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
+[![Total Downloads](https://poser.pugx.org/kuikui/memcache-service-provider/downloads.svg)](https://packagist.org/packages/kuikui/memcache-service-provider)
+
+It provides access to :
 * a simple Memcache wrapper with very simple API for standard use,
 * or your own Memcache wrapper with `$app` injection for custom use,
 * or a genuine Memcache(d) object for advanced use.
@@ -12,7 +15,7 @@ Create a composer.json in your projects root-directory :
 ```json
 {
     "require": {
-        "kuikui/memcache-service-provider": "1.0.0"
+        "kuikui/memcache-service-provider": "1.1.0"
     }
 }
 ```
@@ -20,8 +23,8 @@ Create a composer.json in your projects root-directory :
 and run :
 
 ```shell
-$ curl -s http://getcomposer.org/installer | php
-$ php composer.phar install --no-dev
+$ curl -sS http://getcomposer.org/installer | php
+$ php composer.phar install
 ```
 
 ## Registering
@@ -96,6 +99,8 @@ $app['memcache.default_duration'] = 60; // default: 0 (no limit)
 
 ## Running the tests
 
+The development environment is provided by Vagrant and the [Xotelia box](https://github.com/Xotelia/VagrantBox).
+
 ```shell
 $ cp Vagrantfile.dist Vagrantfile
 $ vagrant up
@@ -122,3 +127,4 @@ Tested with [atoum](http://atoum.org).
 ## License
 
 The MemcacheServiceProvider is licensed under the [MIT license](https://github.com/KuiKui/MemcacheServiceProvider/blob/master/LICENSE).
+
