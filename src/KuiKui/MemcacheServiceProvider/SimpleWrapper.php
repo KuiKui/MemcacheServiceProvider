@@ -10,8 +10,6 @@
 
 namespace KuiKui\MemcacheServiceProvider;
 
-use Silex\Application;
-
 /**
  * Memcache simple wrapper.
  *
