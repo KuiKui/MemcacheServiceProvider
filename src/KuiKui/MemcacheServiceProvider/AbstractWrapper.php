@@ -10,7 +10,7 @@
 
 namespace KuiKui\MemcacheServiceProvider;
 
-use Silex\Application;
+use Pimple\Container as Application;
 
 /**
  * Memcache wrapper interface.

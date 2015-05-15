@@ -10,8 +10,8 @@
 
 namespace KuiKui\MemcacheServiceProvider;
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\ServiceProviderInterface;
+use Pimple\Container as Application;
 
 /**
  * Memcache service provider.
@@ -24,7 +24,7 @@ class ServiceProvider implements ServiceProviderInterface
     {
         // Storing the provider to be able to inject it into the closure, allowing the closure to access the provider.
         $provider = $this;
-        $app['memcache'] = $app->share(function() use ($app, $provider) {
+        $app['memcache'] = ( function() use ($app, $provider) {
             $memcacheClass = $provider->getMemcacheClass($app);
             $memcacheInstance = new $memcacheClass();
 
@@ -39,10 +39,7 @@ class ServiceProvider implements ServiceProviderInterface
 
             return new $wrapperClass($memcacheInstance, $app);
         });
-    }
-
-    public function boot(Application $app)
-    {
+        
         $app['memcache.default_duration'] = $this->getDefaultExpirationTime($app);
         $app['memcache.default_compress'] = $this->getDefaultCompress($app);
     }
