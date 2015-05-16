@@ -1,6 +1,6 @@
-# Memcache service provider for Silex
+# Memcache service provider for Silex 1.x
 
-[![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.svg)](http://travis-ci.org/KuiKui/MemcacheServiceProvider)
+[![Build Status](https://secure.travis-ci.org/KuiKui/MemcacheServiceProvider.svg?branch=1.x)](http://travis-ci.org/KuiKui/MemcacheServiceProvider?branch=1.x)
 [![Total Downloads](https://poser.pugx.org/kuikui/memcache-service-provider/downloads.svg)](https://packagist.org/packages/kuikui/memcache-service-provider)
 
 It provides access to :
@@ -15,7 +15,7 @@ Create a composer.json in your projects root-directory :
 ```json
 {
     "require": {
-        "kuikui/memcache-service-provider": "1.1.0"
+        "kuikui/memcache-service-provider": "~1.1"
     }
 }
 ```
@@ -113,7 +113,9 @@ $ composer install
 $ ./vendor/bin/atoum
 ```
 
-## Dependency
+## Dependencies
+
+PHP 5.3+
 
 MemcacheServiceProvider needs one of these PHP modules to be installed :
 * [memcache](http://www.php.net/manual/en/book.memcache.php)
